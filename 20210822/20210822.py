@@ -1,5 +1,5 @@
-import io
-from PIL import Image, ImageTk
+from PIL import Image as Ima
+from PIL import ImageTk
 from tkinter import *
 
 
@@ -16,20 +16,22 @@ def resize(w, h, w_box, h_box, pil_image):
     fm = min([fm1, fm2])
     width = int(w * fm)
     height = int(h * fm)
-    return pil_image.resize((width, height), Image.ANTIALIAS)
+    return pil_image.resize((width, height), Ima.ANTIALIAS)
 
-pil_image = Image.open(r'20210822/ether.gif')
+pil_image = Ima.open("20210822/ether.gif")
 w, h = pil_image.size
-w_box = 400
-h_box = 606
-tk_image = ImageTk.PhotoImage(resize = (w, h, w_box, h_box, pil_image))
+w_box = 100
+h_box = 100
+tk_image = ImageTk.PhotoImage(resize(w, h, w_box, h_box, pil_image))
+lb = Label(wd, image = tk_image, width = w_box, height = h_box)
+lb.pack(padx = 10, pady = 10)
 
+'''
 canva = Canvas(wd, width = 700, height = 700, bg = '#CBFAFA')
 canva.pack()
 cc = canva.create_oval(40, 70, 100, 130, fill = 'red', outline = 'red')
 rangle = canva.create_rectangle(120, 34, 560, 78, fill = "blue", outline = "blue")
 msg = canva.create_text(500, 400, text = "Yo", font = ('Arial', 24))
-
 
 def move_canva(event):
     key = event.keysym
@@ -43,10 +45,9 @@ def move_canva(event):
     elif key == "Down":
         canva.move(cc, 0, 10)
 
-
 canva.bind_all('<Key>', move_canva)
 
-'''
+
 img = PhotoImage(file = "20210822\ether.gif")
 imgs = canva.create_image(500, 400, image = img)
 '''
