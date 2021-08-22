@@ -2,15 +2,15 @@ from tkinter import *
 
 wd = Tk()
 wd.title = ("prj")
-wd.geometry("1000x800")
-wd.config(bg = 'green')
 
-def bgswap():
-    pass
-
-btn = Button(wd, text = 'Click Me', command = bgswap)
+def switch(lista):
+    fg = lista[0]
+    bg = lista[1]
+    display = Label(wd, text = fg, fg = fg, bg = bg)
+    display.pack()
+    lista = reversed(lista)
+    
+btn = Button(wd, text = "Click me", command = switch(lista))
 btn.pack()
 
 wd.mainloop()
-
-# Not Done Yet.
