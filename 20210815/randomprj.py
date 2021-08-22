@@ -1,5 +1,7 @@
 import tkinter as tk
+from tkinter import *
 
+'''
 class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
@@ -22,4 +24,14 @@ class Application(tk.Frame):
 
 root = tk.Tk()
 app = Application(master=root)
-app.mainloop()
+'''
+
+class App(tk.Frame):
+    def __init__(self, master=None):
+        super().__init__(master)
+        self.pack()
+
+root = Tk()
+
+wdw = App(root)
+wdw.mainloop()
